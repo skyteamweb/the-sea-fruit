@@ -3,35 +3,80 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>The Sea Fruit</title>
+    <title>The Sea Fruit Website</title>
     <style>
         body {
             font-family: Arial, sans-serif;
+            margin: 0;
+            text-align: center;
             background-color: #1a1a1a;
             color: white;
-            text-align: center;
-            padding: 50px;
         }
+
+        /* Countdown bar */
+        .countdown-bar {
+            background-color: red;
+            color: white;
+            font-size: 24px;
+            font-weight: bold;
+            padding: 10px 0;
+        }
+
+        /* Welcome bar */
+        .welcome-bar {
+            background-color: yellow;
+            color: black;
+            font-size: 24px;
+            font-weight: bold;
+            padding: 10px 0;
+        }
+
+        /* Main content (description) */
+        .content {
+            padding: 20px;
+        }
+
+        h1 {
+            font-size: 36px;
+            color: #FF5733;
+            margin: 20px 0;
+        }
+
+        p {
+            font-size: 18px;
+            color: #dcdcdc;
+        }
+
         .countdown {
             font-size: 50px;
             color: #FF5733;
             background-color: #333;
             padding: 20px;
             border-radius: 10px;
+            margin-top: 20px;
             display: inline-block;
-            margin-top: 30px;
-        }
-        h1 {
-            color: #FF5733;
         }
     </style>
 </head>
 <body>
-    <h1>Welcome to "The Sea Fruit!"</h1>
-    <p>Get ready for the Day Publish Game! The countdown is on!</p>
+    <!-- Countdown Bar -->
+    <div class="countdown-bar">
+        COUNTDOWN PUBLISH: <span id="countdown-bar">00D:00H:00M:00S</span>
+    </div>
 
-    <!-- Countdown Timer -->
-    <div class="countdown" id="countdown"></div>
+    <!-- Welcome Bar -->
+    <div class="welcome-bar">
+        WELCOME TO "THE SEA FRUIT"
+    </div>
+
+    <!-- Main content (description) -->
+    <div class="content">
+        <h1>Get ready for the Day Publish Game!</h1>
+        <p>
+            Explore a variety of sea fruits and learn more about the unique flavors of the ocean.
+            Stay tuned for updates, events, and exciting games coming your way soon!
+        </p>
+    </div>
 
     <script>
         // Set the date we're counting down to (13th January 2025 UTC)
@@ -53,12 +98,12 @@
             var seconds = Math.floor((distance % (1000 * 60)) / 1000);
             
             // Display the result
-            document.getElementById("countdown").innerHTML = days + "d " + hours + "h " + minutes + "m " + seconds + "s ";
+            document.getElementById("countdown-bar").innerHTML = days + "D:" + hours + "H:" + minutes + "M:" + seconds + "S";
             
             // If the countdown is finished
             if (distance < 0) {
                 clearInterval(x);
-                document.getElementById("countdown").innerHTML = "EXPIRED";
+                document.getElementById("countdown-bar").innerHTML = "EXPIRED";
             }
         }, 1000);
     </script>
